@@ -309,5 +309,7 @@ storage = JSON.parse(localStorage.getItem("nouvelleNote"));
 	let nouvelleChecklist= new ChecklistNote(valeurtitreChecklist,valeurtoDoChecklist,valeurdateCreationChecklist,valeurDateRappelChecklist,valeurcolorChecklist)
 	// stock l instance ds mon tableau notesArray
 	nouvelleChecklist = notesArray.unshift(nouvelleChecklist);
+	// appel du noteArray pour afficher ce qu'il possede deja 
+	Notes.displayNotes(notesArray,"container");
 
 }; */
