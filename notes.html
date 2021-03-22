@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+</head>
+<body>
+
+
+<!--___________________________________________________________________________________________________________________________-->
+
+    <form>
+        <input id="titreTextNote" placeholder="titre">
+
+        <input id="texteTextNote" placeholder="texte">
+
+        <label for="dateCreationTextNote">Date:</label>
+        <input type="date" id="dateCreationTextNote"value=""
+        min="2018-01-01"max="2035-01-01">
+
+        <label for="dateRappelTextNote">Date:</label>
+        <input type="date" id="dateRappelTextNote"value=""
+        min="2018-01-01"max="2035-01-01">
+
+        <select id="colorTextNote" size="2">
+            <option>rouge</option>
+            <option>orange</option>
+            <option>jaune</option>
+            <option>vert</option>
+        </select>
+        <br>
+        <!--creation du button pour ajouter soit une note-->
+        <button onclick="createTextNote()">Add</button>
+
+    </form>
+<!--_____________________________________________________________________________________________________________________________-->    
+    <!--Fomrulaire pour checklist-->
+   <!--  <form>
+        <input id="titreChecklist" placeholder="titre">
+
+        <input id="toDoChecklist" placeholder="ToDo">
+
+        <label for="dateCreationChecklist">Date:</label>
+        <input type="date" id="dateCreationTextNote"value=""
+        min="2018-01-01"max="2035-01-01">
+
+        <label for="dateRappelChecklist">Date:</label>
+        <input type="date" id="dateRappelTextNote"value=""
+        min="2018-01-01"max="2035-01-01">
+
+        <select id="colorChecklist" size="2">
+            <option>rouge</option>
+            <option>orange</option>
+            <option>jaune</option>
+            <option>vert</option>
+        </select>
+        <br> -->
+        <!--creation du button pour ajouter soit une note-->
+       <!--  <button onclick="createChecklistNote()">Add</button>
+    </form> -->
+
+    <div class="container">
+        <h1>Les taches à faire:</h1>
+        <!-- grave au id js va afficher ce qu il faut-->
+        <div id="container"></div>
+        <!-- <div id="container2"></div> -->
+    </div>
+
+    <script>
+        
+function createTextNote(){
+	//empeche que le form de s envoier et pas etre recharger.
+	event.preventDefault()
+	//pointe sur l id du titre
+	let titreTextNote=document.querySelector("#titreTextNote");
+	//pointe la valeur du titre
+	let valeurTitreTextNote= titreTextNote.value;
+
+	let texteTextNote=document.querySelector("#texteTextNote");
+	let valeurTexteTextNote= texteTextNote.value;
+
+	let dateCreationTextNote=document.querySelector("#dateCreationTextNote");
+	let valeurdateCreationTextNote= dateCreationTextNote.value;
+
+	let dateRappelTextNote=document.querySelector("#dateRappelTextNote");
+	let valeurDateRappelTextNote= dateRappelTextNote.value;
+
+	let colorTextNote=document.querySelector("#colorTextNote");
+	let valeurcolorTextNote= colorTextNote.value;
+
+	console.log(valeurTitreTextNote,valeurTexteTextNote,valeurdateCreationTextNote,valeurDateRappelTextNote,valeurcolorTextNote)
+	
+	//instanciation
+	let nouvelleTextNote= new TextNote(valeurTitreTextNote,valeurdateCreationTextNote,valeurcolorTextNote,valeurDateRappelTextNote,valeurTexteTextNote)
+	// stock l instance ds mon tableau notesArray
+	nouvelleTextNote = notesArray.unshift(nouvelleTextNote);
+    console.log(nouvelleTextNote);
+    // appel du noteArray pour afficher ce qu'il possede deja 
+    Notes.displayNotes(notesArray,"container");
+};
+</script>
+    <script type="text/javascript" src="notes.js"></script>
+</body>
+</html>
+
